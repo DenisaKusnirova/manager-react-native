@@ -30,7 +30,7 @@ export const employeeCreate = ({ name, phone, shift}) => {
 }
 
 // Fetching the data:
-export const emmployeesFetch = () => {
+export const employeesFetch = () => {
     const currentUser = firebase.auth()
 
     return (dispatch) => {
