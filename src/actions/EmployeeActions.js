@@ -55,3 +55,16 @@ export const employeeSave = ({ name, phone, shift, uid}) => {
             })
     }
 }
+
+// Delete an employee:
+export const empoyeeDelete = ({ uid }) => {
+    const { currentUser } = firebase.auth()
+
+    return () => {
+        firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+            .remove()
+            .then(() => {
+                Actions.main().employeeList({ type: 'reset' })
+            })
+    }
+}
